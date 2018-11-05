@@ -1,0 +1,29 @@
+<div class="container" id="home-flats">
+  <h2 class="text-center">Recent flats</h2>
+  <div class="row">
+    <% data.cities.each do |city| %>
+    <div class="col-xs-12 col-sm-4">
+      <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/<%= city.name %>');">
+          <div class="card-category"><%= city.name%>, <%= city.country %></div>
+            <div class="card-description">
+                <h2><%= city.username %> home</h2>
+              <p><%= city.description %></p>
+              <p class="rating">
+                <% city.rating.times do %>
+                <i class="fa fa-star" style="color: #ffb400"></i>
+                <% end %>
+                <% gs = 5 - city.rating %>
+                <% gs.times do %>
+                <i class="fa fa-star" style="color: grey"></i>
+                <% end %>
+              </p>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/<%= city.username %>">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
