@@ -1,0 +1,52 @@
+<% flat = data.flats[owner] %>
+
+<div class="background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/<%= flat.city_name.downcase %>');">
+</div>
+<div class="flat-details">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+      <div class="header-flat-details">
+        <div class="flat-owner-info">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class: "img-circle" %>
+          <p><%= owner.capitalize %></p>
+        </div>
+        <div class="flat-description">
+          <h1><%= flat.description %></h1>
+          <p><%= flat.city_name %>, <%= flat.country_name %></p>
+          <p class="rating">
+            <% flat.rating.times do %>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <% end %>
+            <% gs = 5 - flat.rating %>
+            <% gs.times do %>
+            <i class="fa fa-star" style="color: grey"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <form action="#">
+        <h4>Book this flat</h3>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="text" class="form-control" placeholder="checkin" id="checkin">
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" placeholder="checkout">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <select name="" id="guests" class="form-control">
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+            </select>
+          </div>
+          <input type="submit" class="btn btn-danger" value="Book it" style="width: 100%">
+        </form>
+      </div>
+    </div>
+  </div>

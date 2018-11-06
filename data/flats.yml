@@ -1,0 +1,21 @@
+ssaunier:
+  city_name: Paris
+  country_name: France
+  name: Sebastian
+  rating: 4
+  description: "Charming room in Montmarte"
+  wifi: false
+papillard:
+  city_name: Tokyo
+  country_name: Japan
+  name: Boris
+  rating: 3
+  description: "Small flat in Tokyo"
+  wifi: true
+monsieurpaillard:
+  city_name: London
+  country_name: UK
+  name: Romain
+  rating: 5
+  description: "Nice flat in Picadilly"
+  wifi: true

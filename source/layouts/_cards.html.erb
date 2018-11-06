@@ -1,26 +1,30 @@
 <div class="container" id="home-flats">
   <h2 class="text-center">Recent flats</h2>
   <div class="row">
-    <% data.cities.each do |city| %>
+    <% data.flats.each do |owner, flat| %>
     <div class="col-xs-12 col-sm-4">
       <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/<%= city.name %>');">
-          <div class="card-category"><%= city.name%>, <%= city.country %></div>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/<%= flat.city_name.downcase %>');">
+          <div class="card-category"><%= flat.city_name %>, <%= flat.country_name %></div>
             <div class="card-description">
-                <h2><%= city.username %> home</h2>
-              <p><%= city.description %></p>
+              <% if flat.name.split('').last == "s" %>
+                <h2><%= flat.name %>' home</h2>
+              <% else %>
+                <h2><%= flat.name %>'s home</h2>
+              <% end %>
+              <p><%= flat.description %></p>
               <p class="rating">
-                <% city.rating.times do %>
+                <% flat.rating.times do %>
                 <i class="fa fa-star" style="color: #ffb400"></i>
                 <% end %>
-                <% gs = 5 - city.rating %>
+                <% gs = 5 - flat.rating %>
                 <% gs.times do %>
                 <i class="fa fa-star" style="color: grey"></i>
                 <% end %>
               </p>
             </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/<%= city.username %>">
-            <a class="card-link" href="#" ></a>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class:"card-user" %>
+            <%= link_to "", "flats/#{owner}.html", class: "card-link" %>
           </div>
         </div>
       <% end %>
